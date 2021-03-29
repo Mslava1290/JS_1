@@ -46,7 +46,7 @@
             //Получаем  товары у которых есть фотографии
             let photoarray = products.filter(function (products) {
                 if('photos' in products && products.photos.length > 0){
-                    return products;
+                    return true;
                 }
             });
             console.log(photoarray);
@@ -55,7 +55,7 @@
             products.sort(function(products1, products2){
                 if (products1.price < products2.price){
                     return -1;
-                if (products.price2 < products.price1){
+                if (products2.price < products1.price){
                     return 1;
                 }
                 return 0;
