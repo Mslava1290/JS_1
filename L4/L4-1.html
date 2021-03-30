@@ -71,25 +71,24 @@ hundreds: 0, //это сотни
             if (num <= 9){
                 tens = 0;
                 hundreds = 0;
-                const obj1 = new Obj(units, tens, hundreds)
-                return obj1;
+                units = num;
+
             };
 
             if (num >= 10 && num <= 99){
                 hundreds = 0;
                 units = number % 10;
                 tens = parseInt((number / 10));
-                const obj1 = new Obj(units, tens, hundreds)
-                return obj1;
             };
 
             if (num >= 100){
                 hundreds =  parseInt((number / 100));
                 units = number % 10;
                 tens = parseInt((number % 100) / 10);
-                const obj1 = new Obj(units, tens, hundreds)
-                return obj1;
             };
+            
+            const obj1 = new Obj(units, tens, hundreds)
+            return obj1;
         }
     </script>
 </body>
