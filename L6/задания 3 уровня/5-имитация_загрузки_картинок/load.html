@@ -39,9 +39,25 @@
     "images/здесь_нужно_поставить_правильное_имя_файла".
     3. Наконец весь код оберните в setTimeout, и выставите задержку 3 сек.
     -->
-
+<!-- 
     <script>
-        
+        'use strict'
+        let img_el = document.querySelectorAll('img');
+        for (let i = 0; i < img_el.length; i++) {
+            for(let j = 1; j <= img_el.length; j++){
+                img_el[i].setAttribute('src', 'images/'+ j + '.jpg');
+                break;
+            }
+        }
+    </script> -->
+    
+    <script>
+        'use strict'
+        let img_el = document.querySelectorAll('img');
+        for (let i = 0; i < img_el.length; i++) {
+            let j = i+1;
+                img_el[i].setAttribute('src', 'images/'+ j + '.jpg');
+        }
     </script>
 </body>
 </html>
