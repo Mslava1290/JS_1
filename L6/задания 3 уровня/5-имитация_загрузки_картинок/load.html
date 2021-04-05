@@ -43,10 +43,13 @@
     <script>
         'use strict'
         let img_el = document.querySelectorAll('img');
-        for (let i = 0; i < img_el.length; i++) {
+        setTimeout(function(){
+            for (let i = 0; i < img_el.length; i++) {
             let j = i+1;
                 img_el[i].setAttribute('src', 'images/'+ j + '.jpg');
         }
+        }, 3000);
+
     </script>
 </body>
 </html>
