@@ -27,7 +27,15 @@
     -->
 
     <script>
-        
+        'use strict'
+        let goToTopEl = document.querySelector('div');
+        window.addEventListener('scroll', function(event){
+            if (window.pageYOffset >= '500'){ // появление блока
+                goToTopEl.style.display = 'block';
+            }else {
+                goToTopEl.style.display = 'none'; // сокрытие блока
+            }
+        })
     </script>
 </body>
 </html>
