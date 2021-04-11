@@ -20,7 +20,16 @@
     -->
 
     <script>
-        
+        'use strict'
+        let elem;
+        let btn_el = document.querySelectorAll('button');
+        btn_el.forEach(function(elem){
+            elem.addEventListener('click', function(event){
+                let btn_id = event.target.dataset.id;
+                let btn_vl = event.target.dataset.value;
+                console.log(`data-id: ${btn_id}, data-value: ${btn_vl}`);
+            })
+        })
     </script>
 </body>
 </html>

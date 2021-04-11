@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <img src="https://picsum.photos/200/300?random=1" alt="pic1">
+    <!-- 
+    <img src="https://picsum.photos/200/300?random=1" alt="pic1">
     <img src="https://picsum.photos/200/300?random=2" alt="pic2">
-    <img src="https://picsum.photos/200/300?random=3" alt="pic3"> -->
+    <img src="https://picsum.photos/200/300?random=3" alt="pic3"> 
+    -->
 
     <script>
         /* 
@@ -19,7 +21,12 @@
         ниже:
         <img src="https://picsum.photos/200/300?random=${счетчик_цикла_здесь}" alt="pic${счетчик_цикла_здесь}">
         */
-       
+       'use strict'
+       for (let i = 1; i <= 6; i++){
+           let bd = document.querySelector('body');
+           let link = "https://picsum.photos/200/300?random="
+           bd.insertAdjacentHTML('afterbegin', `<img src=${link}${i} alt=pic${i}>`)
+       }
     </script>
 </body>
 </html>
