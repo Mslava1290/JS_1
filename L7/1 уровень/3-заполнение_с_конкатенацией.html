@@ -8,6 +8,7 @@
 <body>
     
     <script>
+        'use strict'
         let totalString = "";
 
         /* Задание.
@@ -18,6 +19,13 @@
 
         // должно вывести:
         // слово1слово2слово3
+
+        const string = 'слово';
+        let string_temp = '';
+        for (let i = 1; i <= 3; i++){
+            string_temp = string + i;
+            totalString = totalString + string_temp; 
+        }
         console.log(totalString);
     </script>
 </body>
