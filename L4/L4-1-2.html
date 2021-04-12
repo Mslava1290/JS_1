@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*
+Сделайте в стиле es5, а затем в стиле es6 (по аналогии из дополнительных видео -> 
+3 примеры наследования -> механика наследования),
+
+а) конструктор Post, который принимает параметры author, text, date и сохраняет их 
+как свойства объекта. Объекты типа Post должны иметь метод edit, который будет 
+принимать текст и записывать его в свойство text объекта.
+
+б) конструктор AttachedPost, который принимает параметры author, text, date. 
+Проинициализируйте эти свойства с помощью конструктора Post, чтобы не дублировать код. 
+Также в конструкторе AttachedPost должно создаваться свойство highlighted со значением 
+false. Унаследуйте в объектах типа AttachedPost методы из Post.
+
+Объекты типа AttachedPost должны иметь метод makeTextHighlighted, который 
+будет назначать свойству highlighted значение true.
+*/
+        'use strict';
+    //ES5
+        function Post_es5 (author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        Post_es5.prototype.edit = function (text) {
+            this.text = text;
+        };
+
+        function AttachedPost_es5 (author, text, date) {
+            Post_es5.call(this, author, text, date);
+            this.highlighted = false;
+        }
+        AttachedPost_es5.prototype = Object.create(Post_es5.prototype);
+        AttachedPost_es5.prototype.constuctor = AttachedPost_es5;
+
+        AttachedPost_es5.prototype.makeTextHighlighted = function() {
+            this.highlighted = true;
+        }
+        let post1_es5 = new Post_es5 ('post_autor', 'post_text' , 'post_date');
+        let attachedpost1_es5 = new AttachedPost_es5 ('ATPOST_AUTOR', 'ATPOST_TEXT', 'ATPOST_DATE');
+        console.log(post1_es5);
+        console.log(attachedpost1_es5);
+
+        
+        post1_es5.edit('hello world!');
+        attachedpost1_es5.makeTextHighlighted();
+        attachedpost1_es5.edit('edited_text');
+    
+    //ES6
+        class Post_es6 {
+            constructor (author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(text) {
+                this.text = text;
+            }
+        }
+        class AttachedPost_es6 extends Post_es6 {
+            constructor (author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+        let post1_es6 = new Post_es6 ('post_autor_es6', 'post_text_es6' , 'post_date_es6');
+        let attachedpost1_es6 = new AttachedPost_es6 ('ATPOST_AUTOR_es6', 'ATPOST_TEXT_es6', 'ATPOST_DATE_es6');
+        console.log(post1_es6);
+        console.log(attachedpost1_es6);
+
+    </script>
+</body>
+</html>
