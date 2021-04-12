@@ -75,6 +75,11 @@ const products = {
     ],
 };
 
+let div_prod = document.querySelector('.products');
+let btn_el = document.querySelectorAll('button');
+btn_el.forEach(function(elem){
+    elem.addEventListener('click', clickHandler)
+});
 
 /**
  * Эта функция должна вызываться при клике по кнопкам.
@@ -85,7 +90,10 @@ function clickHandler(event) {
     
     //в showCategory надо передать строку с типом категории, тип берите
     //из атрибута data-type у кнопки, по которой кликнули.
-    
+    if(div_prod.innerHTML != ''){
+        div_prod.innerHTML = '';
+    };
+    showCategory(event.target.dataset.type);
 }
 
 /**
@@ -96,9 +104,15 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
-    
-}
-
+    let j = products[category].length;
+    for(let i = 0; i < j; i++){
+        let pr_id = products[category][i].id;
+        let pr_name = products[category][i].name;
+        let pr_price = products[category][i].price;
+        let pr_imageUrl = products[category][i].imageUrl;
+        getProductMarkup(pr_id, pr_name, pr_price, pr_imageUrl);
+    };
+};
 /**
  * @param {Object} product объект из массива phones, tablets или tv.
  * @param {number} product.id id продукта
@@ -108,6 +122,11 @@ function showCategory(category) {
  * @returns {string} html-разметка для товара по аналогии из комментария
  * в верху этого файла.
  */
-function getProductMarkup(product) {
+function getProductMarkup(pr_id, pr_name, pr_price, pr_imageUrl) {
+    div_prod.insertAdjacentHTML('beforeend', `<div> ${pr_id}</div> <div>${pr_name}</div> <img src="${pr_imageUrl}" alt=""> <div>${pr_price}</div> <a href="https://example.com/producs/${pr_id}">Подробнее</a>`);
+    // <div>${здесь_название_товара}</div>
+    // <img src="${здесь путь до картинки}" alt="">
+    // <div>${здесь_цена}</div>
+    // <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
 
-}
+};
