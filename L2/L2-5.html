@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*
+    5. Реализовать функцию с тремя параметрами: function mathOperation(arg1, 
+    arg2, operation),где arg1, arg2 – значения аргументов, 
+    operation – строка с названием операции. В зависимости от
+    переданного значения операции (использовать switch) выполнить одну
+     из арифметических операций
+    (использовать функции из задания 4) и вернуть полученное значение.
+    */
+
+    'use strict'
+
+    function plus (arg1, arg2){
+        return(arg1 + arg2)
+    }
+    function minus (arg1, arg2){
+        return(arg1 - arg2)
+    }
+    function divide (arg1, arg2){
+        return(arg1 / arg2)
+    }
+    function multiply (arg1, arg2){
+        return(arg1 * arg2)
+    }
+
+    function mathOperation(arg1, arg2, operation){
+        let result;
+        switch (operation) {
+            case 'plus':
+                result = plus(arg1, arg2);
+                break;
+            case 'minus':
+                result = minus(arg1, arg2);
+                break;
+            case 'divide':
+                result = divide(arg1, arg2);
+                break;
+            case 'multiply':
+                result = multiply(arg1, arg2);
+                break;
+            default:
+                alert('Выбрана неверная операция');
+        }
+    alert(result);
+    }
+    let arg1 = parseInt(prompt('Введите 1ый аргумент:'));
+    let arg2 = parseInt(prompt('Введите 2ый аргумент:'));
+    let operation = prompt('Введите операцию(minus, plus, divide, multiply;');
+    mathOperation(arg1, arg2, operation)
+</script>
+</body>
+</html>
